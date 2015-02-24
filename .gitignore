@@ -1,0 +1,9 @@
+# Composer
+composer.phar
+vendor/
+
+# WebStorm, PHPStorm
+.idea/
+
+# Project
+config.php

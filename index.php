@@ -1,0 +1,26 @@
+<?php namespace GlobalTechnology\GlobalMeasurements {
+	require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
+	$wrapper = ApplicationWrapper::singleton();
+	$wrapper->authenticate();
+	?>
+	<!doctype html>
+	<html>
+	<head>
+		<title>Next-Gen Measurements</title>
+
+		<link href="app/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+		<link href="app/vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+		<link href="app/css/spinner.css" rel="stylesheet" />
+		<link href="app/css/gcm.css" rel="stylesheet" />
+
+		<script type="application/javascript" src="app/vendor/jquery/dist/jquery.js"></script>
+		<script type="application/javascript">
+			var GCM_APP = window.GCM_APP = <?php echo $wrapper->appConfig(); ?>;
+		</script>
+	</head>
+	<body>
+	<div ng-include="GCM_APP.app_url + '/template/gcm_app.html'"></div>
+	<script type="application/javascript" data-main="app/js/main.js" src="app/vendor/requirejs/require.js"></script>
+	</body>
+	</html>
+<?php }
