@@ -7,7 +7,7 @@
 	 */
 	'pgtservice'   => array(
 		/** @var bool Enable PGT Service */
-		'enabled'  => true,
+		'enabled'  => false,
 		/** @var string PGT Service proxy callback URL */
 		'callback' => 'https://agapeconnect.me/casLogin.aspx',
 		/** @var string PGT Service endpoint URL */
@@ -36,5 +36,20 @@
 	'measurements' => array(
 		/** @var string API endpoint, no training slash */
 		'endpoint' => 'https://stage-measurements.global-registry.org/v1'
+	),
+
+	/**
+	 * Mobile Applications
+	 */
+	'mobileapps'   => array(
+		'ios'     => array(
+			'enabled' => false,
+			'link'    => 'itms-services://?action=download-manifest&url=https://sbr.global-registry.org/apps/GMA.plist',
+		),
+		'android' => array(
+			'enabled' => false,
+			'link'    => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app.demo', // Stage
+			//'link'    => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app', // Production
+		),
 	),
 );

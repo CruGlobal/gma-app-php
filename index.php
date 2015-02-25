@@ -19,7 +19,7 @@
 		</script>
 	</head>
 	<body>
-	<div ng-include="GCM_APP.app_url + '/template/gcm_app.html'"></div>
+	<div ng-include="'app/template/gcm_app.html'"></div>
 	<script type="application/javascript" data-main="app/js/main.js" src="app/vendor/requirejs/require.js"></script>
 	</body>
 	</html>

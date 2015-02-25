@@ -94,6 +94,7 @@
 				'app_url'     => $this->baseUrl . '/app',
 				'refresh_url' => $this->baseUrl . '/refresh.php',
 				'cas_logout'  => $this->casClient->getServerLogoutURL(),
+				'mobileapps'  => Config::get( 'mobileapps', false ),
 			) );
 		}
 
