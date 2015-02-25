@@ -1,6 +1,6 @@
 <?php namespace GlobalTechnology\GlobalMeasurements {
 
-	require_once( dirname( dirname( __FILE__ ) ) . '/config.php' );
+	// Require phpCAS, composer does not autoload it.
 	require_once( dirname( dirname( __FILE__ ) ) . '/vendor/jasig/phpcas/source/CAS.php' );
 
 	class ApplicationWrapper {
@@ -36,23 +36,34 @@
 		 * Constructor
 		 */
 		private function __construct() {
+			//Load config
+			Config::load( dirname( dirname( __FILE__ ) ) . '/config.php' );
+
+			//Generate Current URL taking into account forwarded proto
 			$url = \Net_URL2::getRequested();
 			$url->setQuery( false );
-			if( $this->endswith( $url->getPath(), '.php' ) )
+			if ( $this->endswith( $url->getPath(), '.php' ) )
 				$url->setPath( dirname( $url->getPath() ) );
-			if( isset( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] ) )
+			if ( isset( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] ) )
 				$url->setScheme( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] );
 			$this->baseUrl = rtrim( $url->getURL(), '/' );
 
+			// Initialize phpCAS proxy client
 			$this->casClient = $this->initializeCAS();
 		}
 
 		private function initializeCAS() {
-			$casClient = new \CAS_Client( CAS_VERSION_2_0, true, CASHostname, CASPort, CASContext );
+			$casClient = new \CAS_Client(
+				CAS_VERSION_2_0,
+				true,
+				Config::get( 'cas.hostname' ),
+				Config::get( 'cas.port' ),
+				Config::get( 'cas.context' )
+			);
 			$casClient->setNoCasServerValidation();
 
-			if ( true === UseProxyTicketService ) {
-				$casClient->setCallbackURL( ProxyTicketServiceCallback );
+			if ( true === Config::get( 'pgtservice.enabled', false ) ) {
+				$casClient->setCallbackURL( Config::get( 'pgtservice.callback' ) );
 				$casClient->setPGTStorage( new ProxyTicketServiceStorage( $casClient ) );
 			}
 			else {
@@ -65,8 +76,7 @@
 		}
 
 		public function getAPIServiceTicket() {
-			error_log( rtrim( MeasurementsAPI, '/' ) . '/token' );
-			return $this->casClient->retrievePT( rtrim( MeasurementsAPI, '/' ) . '/token', $code, $msg );
+			return $this->casClient->retrievePT( Config::get( 'measurements.endpoint' ) . '/token', $code, $msg );
 		}
 
 		public function authenticate() {
@@ -80,7 +90,7 @@
 		public function appConfig() {
 			return json_encode( array(
 				'ticket'      => $this->getAPIServiceTicket(),
-				'api_url'     => rtrim( MeasurementsAPI, '/' ),
+				'api_url'     => Config::get( 'measurements.endpoint' ),
 				'app_url'     => $this->baseUrl . '/app',
 				'refresh_url' => $this->baseUrl . '/refresh.php',
 				'cas_logout'  => $this->casClient->getServerLogoutURL(),

@@ -6,4 +6,4 @@ vendor/
 .idea/
 
 # Project
-config.php
+/config.php

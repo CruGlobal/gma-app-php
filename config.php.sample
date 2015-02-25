@@ -1,19 +1,40 @@
-<?php namespace GlobalTechnology\GlobalMeasurements {
+<?php return array(
 
 	/**
-	 * Enable use of Proxy Ticket Service
-	 * Enabling this will allow the app to run on localhost
-	 * Disable this for production systems
+	 * Proxy Granting Ticket Service
+	 *
+	 * Enable this to use the php wrapper on localhost.
 	 */
-	CONST UseProxyTicketService = false;
-	CONST ProxyTicketServiceCallback = '';
-	CONST ProxyTicketServiceURL = '';
-	CONST ProxyTicketServiceUsername = '';
-	CONST ProxyTicketServicePassword = '';
+	'pgtservice'   => array(
+		/** @var bool Enable PGT Service */
+		'enabled'  => true,
+		/** @var string PGT Service proxy callback URL */
+		'callback' => 'https://agapeconnect.me/casLogin.aspx',
+		/** @var string PGT Service endpoint URL */
+		'endpoint' => 'https://agapeconnect.me/DesktopModules/AgapeConnect/casauth/pgtcallback.asmx/RetrievePGTCallback',
+		/** @var string PGT Service Username */
+		'username' => '',
+		/** @var string PGT Service Password */
+		'password' => '',
+	),
 
-	CONST CASHostname = 'thekey.me';
-	CONST CASPort = 443;
-	CONST CASContext = 'cas';
+	/**
+	 * CAS Settings
+	 */
+	'cas'          => array(
+		/** @var string CAS hostname */
+		'hostname' => 'thekey.me',
+		/** @var int CAS port */
+		'port'     => 443,
+		/** @var string CAS context */
+		'context'  => 'cas',
+	),
 
-	CONST MeasurementsAPI = '';
-}
+	/**
+	 * Measurements API
+	 */
+	'measurements' => array(
+		/** @var string API endpoint, no training slash */
+		'endpoint' => 'https://stage-measurements.global-registry.org/v1'
+	),
+);

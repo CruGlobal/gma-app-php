@@ -1,23 +1,26 @@
 <?php namespace GlobalTechnology\GlobalMeasurements {
 
+	use Httpful\Mime;
+	use Httpful\Request;
+
 	class ProxyTicketServiceStorage extends \CAS_PGTStorage_AbstractStorage {
 
 		function getStorageType() {
-			return 'proxy-ticket-service';
+			return 'pgtservice';
 		}
 
 		function getStorageInfo() {
-			return 'proxy-ticket-service';
+			return 'pgtservice';
 		}
 
 		function read( $pgt_iou ) {
-			$response = \Httpful\Request::post(
-				ProxyTicketServiceURL,
+			$response = Request::post(
+				Config::get( 'pgtservice.endpoint' ),
 				array(
-					'Username' => ProxyTicketServiceUsername,
-					'Password' => ProxyTicketServicePassword,
+					'Username' => Config::get( 'pgtservice.username' ),
+					'Password' => Config::get( 'pgtservice.password' ),
 					'PGTIOU'   => $pgt_iou,
-				), \Httpful\Mime::FORM )
+				), Mime::FORM )
 				->addHeader( 'Content-Type', 'application/x-www-form-urlencoded' )
 				->send();
 			$dom      = new \DOMDocument();
