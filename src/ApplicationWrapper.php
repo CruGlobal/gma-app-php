@@ -46,7 +46,7 @@
 				$url->setPath( dirname( $url->getPath() ) );
 			if ( isset( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] ) )
 				$url->setScheme( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] );
-			$this->baseUrl = rtrim( $url->getURL(), '/' );
+			$this->baseUrl = rtrim( $url->getPath(), '/' );
 
 			// Initialize phpCAS proxy client
 			$this->casClient = $this->initializeCAS();
@@ -89,15 +89,30 @@
 
 		public function appConfig() {
 			return json_encode( array(
-				'ticket'      => $this->getAPIServiceTicket(),
-				'api_url'     => Config::get( 'measurements.endpoint' ),
-				'app_url'     => $this->baseUrl . '/app',
-				'refresh_url' => $this->baseUrl . '/refresh.php',
-				'cas_logout'  => Config::get( 'pgtservice.enabled' )
-					? $this->casClient->getServerLogoutURL()
-					: $this->baseUrl . '/logout.php',
-				'mobileapps'  => Config::get( 'mobileapps', false ),
+				'ticket'     => $this->getAPIServiceTicket(),
+				'appUrl'     => $this->baseUrl . '/app',
+				'mobileapps' => $this->mobileApps(),
+				'api'        => array(
+					'measurements' => Config::get( 'measurements.endpoint' ),
+					'refresh'      => $this->baseUrl . '/refresh.php',
+					'logout'       => Config::get( 'pgtservice.enabled' )
+						? $this->baseUrl . '/logout.php'
+						: $this->casClient->getServerLogoutURL(),
+				),
+				'namespace'  => Config::get( 'measurements.namespace' ),
 			) );
+		}
+
+		private function mobileApps() {
+			$configuredApps = Config::get( 'mobileapps', array() );
+			$apps           = array();
+			foreach ( $configuredApps as $label => $link ) {
+				$apps[ ] = array(
+					'label' => $label,
+					'link'  => $link,
+				);
+			}
+			return $apps;
 		}
 
 		private function endswith( $string, $test ) {

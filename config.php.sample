@@ -35,21 +35,21 @@
 	 */
 	'measurements' => array(
 		/** @var string API endpoint, no training slash */
-		'endpoint' => 'https://stage-measurements.global-registry.org/v1'
+		'endpoint' => 'https://stage-measurements.global-registry.org/v1',
+		/** @var string Namespace of application specific measurements */
+		'namespace' => 'gma-app',
 	),
 
 	/**
 	 * Mobile Applications
+	 * label => link
 	 */
 	'mobileapps'   => array(
-		'ios'     => array(
-			'enabled' => false,
-			'link'    => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/stage/ios/gma.plist',
-		),
-		'android' => array(
-			'enabled' => false,
-			'link'    => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app.demo', // Stage
-			//'link'    => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app', // Production
-		),
+		// -- Production --
+		'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/stage/ios/gma.plist',
+		'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app',
+		// -- Stage --
+		//'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/prod/ios/gma.plist',
+		//'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app.demo',
 	),
 );
