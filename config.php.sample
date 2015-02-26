@@ -44,7 +44,7 @@
 	'mobileapps'   => array(
 		'ios'     => array(
 			'enabled' => false,
-			'link'    => 'itms-services://?action=download-manifest&url=https://sbr.global-registry.org/apps/GMA.plist',
+			'link'    => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/stage/ios/gma.plist',
 		),
 		'android' => array(
 			'enabled' => false,
