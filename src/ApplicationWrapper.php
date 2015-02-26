@@ -93,7 +93,9 @@
 				'api_url'     => Config::get( 'measurements.endpoint' ),
 				'app_url'     => $this->baseUrl . '/app',
 				'refresh_url' => $this->baseUrl . '/refresh.php',
-				'cas_logout'  => $this->casClient->getServerLogoutURL(),
+				'cas_logout'  => Config::get( 'pgtservice.enabled' )
+					? $this->casClient->getServerLogoutURL()
+					: $this->baseUrl . '/logout.php',
 				'mobileapps'  => Config::get( 'mobileapps', false ),
 			) );
 		}
