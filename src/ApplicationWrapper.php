@@ -30,7 +30,7 @@
 		}
 
 		private $casClient;
-		public $baseUrl;
+		public $url;
 
 		/**
 		 * Constructor
@@ -46,7 +46,7 @@
 				$url->setPath( dirname( $url->getPath() ) );
 			if ( isset( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] ) )
 				$url->setScheme( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] );
-			$this->baseUrl = rtrim( $url->getPath(), '/' );
+			$this->url = $url;
 
 			// Initialize phpCAS proxy client
 			$this->casClient = $this->initializeCAS();
@@ -67,7 +67,7 @@
 				$casClient->setPGTStorage( new ProxyTicketServiceStorage( $casClient ) );
 			}
 			else {
-				$casClient->setCallbackURL( $this->baseUrl . '/callback.php' );
+				$casClient->setCallbackURL( $this->url->resolve( 'callback.php' )->getURL() );
 				// Handle logout requests but do not validate the server
 				$casClient->handleLogoutRequests( false );
 			}
@@ -90,13 +90,13 @@
 		public function appConfig() {
 			return json_encode( array(
 				'ticket'     => $this->getAPIServiceTicket(),
-				'appUrl'     => $this->baseUrl . '/app',
+				'appUrl'     => $this->url->resolve( 'app' )->getPath(),
 				'mobileapps' => $this->mobileApps(),
 				'api'        => array(
 					'measurements' => Config::get( 'measurements.endpoint' ),
-					'refresh'      => $this->baseUrl . '/refresh.php',
+					'refresh'      => $this->url->resolve( 'refresh.php' )->getPath(),
 					'logout'       => Config::get( 'pgtservice.enabled' )
-						? $this->baseUrl . '/logout.php'
+						? $this->url->resolve( 'logout.php' )->getPath()
 						: $this->casClient->getServerLogoutURL(),
 				),
 				'namespace'  => Config::get( 'measurements.namespace' ),
