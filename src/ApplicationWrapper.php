@@ -68,6 +68,7 @@
 			}
 			else {
 				$casClient->setCallbackURL( $this->url->resolve( 'callback.php' )->getURL() );
+				$casClient->setPGTStorageFile( session_save_path() );
 				// Handle logout requests but do not validate the server
 				$casClient->handleLogoutRequests( false );
 			}
