@@ -73,6 +73,9 @@
 				$casClient->handleLogoutRequests( false );
 			}
 
+			// Accept all proxy chains
+			$casClient->getAllowedProxyChains()->allowProxyChain( new \CAS_ProxyChain_Any() );
+
 			return $casClient;
 		}
 
