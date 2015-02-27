@@ -15,11 +15,12 @@
 
 		<script type="application/javascript" src="app/vendor/jquery/dist/jquery.js"></script>
 		<script type="application/javascript">
-			var GCM_APP = window.GCM_APP = <?php echo $wrapper->appConfig(); ?>;
+			var gma = window.gma = window.gma || {};
+			gma.config = <?php echo $wrapper->appConfig(); ?>;
 		</script>
 	</head>
 	<body>
-	<div ng-include="GCM_APP.app_url + '/template/gcm_app.html'"></div>
+	<div ng-include="'app/template/app.html'"></div>
 	<script type="application/javascript" data-main="app/js/main.js" src="app/vendor/requirejs/require.js"></script>
 	</body>
 	</html>
