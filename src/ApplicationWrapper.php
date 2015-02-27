@@ -37,7 +37,8 @@
 		 */
 		private function __construct() {
 			//Load config
-			Config::load( dirname( dirname( __FILE__ ) ) . '/config.php' );
+			$configDir = dirname( dirname( __FILE__ ) ) . '/config';
+			Config::load( require $configDir . '/config.php', require $configDir . '/defaults.php' );
 
 			//Generate Current URL taking into account forwarded proto
 			$url = \Net_URL2::getRequested();
@@ -104,6 +105,7 @@
 						: $this->casClient->getServerLogoutURL(),
 				),
 				'namespace'  => Config::get( 'measurements.namespace' ),
+				'googlemaps' => $this->googleMapsUrl(),
 			) );
 		}
 
@@ -117,6 +119,13 @@
 				);
 			}
 			return $apps;
+		}
+
+		private function googleMapsUrl() {
+			$url = new \Net_URL2( Config::get( 'googlemaps.endpoint' ) );
+			if ( $key = Config::get( 'googlemaps.apiKey', false ) )
+				$url->setQueryVariable( 'key', $key );
+			return $url->getURL();
 		}
 
 		private function endswith( $string, $test ) {

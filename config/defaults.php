@@ -35,7 +35,7 @@
 	 */
 	'measurements' => array(
 		/** @var string API endpoint, no training slash */
-		'endpoint' => 'https://stage-measurements.global-registry.org/v1',
+		'endpoint'  => 'https://measurements.global-registry.org/v1',
 		/** @var string Namespace of application specific measurements */
 		'namespace' => 'gma-app',
 	),
@@ -46,10 +46,15 @@
 	 */
 	'mobileapps'   => array(
 		// -- Production --
-		'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/stage/ios/gma.plist',
-		'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app',
+		'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/prod/ios/gma.plist',
+		'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements',
 		// -- Stage --
-		//'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/prod/ios/gma.plist',
-		//'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.gma_app.demo',
+		//'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/stage/ios/gma.plist',
+		//'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements.demo',
+	),
+
+	'googlemaps'   => array(
+		'endpoint' => 'https://maps.googleapis.com/maps/api/js?sensor=false',
+		'apiKey'   => false,
 	),
 );

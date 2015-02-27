@@ -21,8 +21,8 @@
 			return $value;
 		}
 
-		public static function load( $file ) {
-			static::$config = require $file;
+		public static function load( $config, $defaults = array() ) {
+			static::$config = array_replace_recursive( $defaults, $config );
 		}
 	}
 
