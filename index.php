@@ -7,6 +7,7 @@
 	<html>
 	<head>
 		<title>Next-Gen Measurements</title>
+		<link rel="icon" type="image/png" href="app/img/gma-logo.png">
 
 		<link href="app/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 		<link href="app/vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
