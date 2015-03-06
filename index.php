@@ -22,7 +22,9 @@
 	</head>
 	<body>
 	<div ng-include="'app/template/app.html'"></div>
-	<script type="application/javascript" data-main="app/js/main.js" src="app/vendor/requirejs/require.js"></script>
+	<script type="application/javascript"
+			data-main="app/js/main.js?ver=<?php echo Config::get( 'version', '' ); ?>"
+			src="app/vendor/requirejs/require.js"></script>
 	</body>
 	</html>
 <?php }

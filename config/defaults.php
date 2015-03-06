@@ -1,4 +1,8 @@
 <?php return array(
+	/**
+	 * Wrapper version
+	 */
+	'version'      => '1.0.0',
 
 	/**
 	 * Proxy Granting Ticket Service

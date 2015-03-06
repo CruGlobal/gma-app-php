@@ -94,6 +94,7 @@
 
 		public function appConfig() {
 			return json_encode( array(
+				'version'    => Config::get( 'version', '' ),
 				'ticket'     => $this->getAPIServiceTicket(),
 				'appUrl'     => $this->url->resolve( 'app' )->getPath(),
 				'mobileapps' => $this->mobileApps(),
