@@ -61,4 +61,6 @@
 		'endpoint' => 'https://maps.googleapis.com/maps/api/js?sensor=false',
 		'apiKey'   => false,
 	),
+
+    'enabled_tabs' => array('map', 'measurements', 'reports', 'admin')
 );

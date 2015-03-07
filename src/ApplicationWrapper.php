@@ -107,7 +107,8 @@
 				),
 				'namespace'  => Config::get( 'measurements.namespace' ),
 				'googlemaps' => $this->googleMapsUrl(),
-			) );
+                'enabled_tabs' => Config::get('enabled_tabs', array())
+            ) );
 		}
 
 		private function mobileApps() {
