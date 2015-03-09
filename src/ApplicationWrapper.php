@@ -29,7 +29,7 @@
 		private function __clone() {
 		}
 
-		private $casClient;
+		public $casClient;
 		public $url;
 
 		/**
@@ -87,7 +87,7 @@
 		public function authenticate() {
 			$this->casClient->forceAuthentication();
 		}
-
+		
 		public function logout() {
 			$this->casClient->logout( array() );
 		}
