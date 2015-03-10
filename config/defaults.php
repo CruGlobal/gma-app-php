@@ -2,7 +2,7 @@
 	/**
 	 * Wrapper version
 	 */
-	'version'      => '1.0.1',
+	'version'      => '1.0.2',
 
 	/**
 	 * Proxy Granting Ticket Service
