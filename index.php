@@ -12,7 +12,7 @@
 		<link href="app/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 		<link href="app/vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
 		<link href="app/css/spinner.css" rel="stylesheet" />
-		<link href="app/css/gcm.css?ver=1.0.1" rel="stylesheet" />
+		<link href="app/css/gcm.css?ver=1.0.2" rel="stylesheet" />
 
 		<script type="application/javascript" src="app/vendor/jquery/dist/jquery.js"></script>
 		<script type="application/javascript">
