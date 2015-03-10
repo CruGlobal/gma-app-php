@@ -1,4 +1,8 @@
 <?php return array(
+	/**
+	 * Wrapper version
+	 */
+	'version'      => '1.0.1',
 
 	/**
 	 * Proxy Granting Ticket Service
@@ -35,7 +39,7 @@
 	 */
 	'measurements' => array(
 		/** @var string API endpoint, no training slash */
-		'endpoint'  => 'https://measurements.global-registry.org/v1',
+		'endpoint'  => 'https://measurements.global-registry.org/v2',
 		/** @var string Namespace of application specific measurements */
 		'namespace' => 'gma-app',
 	),
@@ -53,8 +57,16 @@
 		//'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements.demo',
 	),
 
+	/**
+	 * Google Maps Configuration
+	 */
 	'googlemaps'   => array(
 		'endpoint' => 'https://maps.googleapis.com/maps/api/js?sensor=false',
 		'apiKey'   => false,
 	),
+
+	/**
+	 * Enabled tabs
+	 */
+    'enabled_tabs' => array('map', 'measurements', 'reports', 'admin')
 );

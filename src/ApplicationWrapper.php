@@ -29,7 +29,7 @@
 		private function __clone() {
 		}
 
-		private $casClient;
+		public $casClient;
 		public $url;
 
 		/**
@@ -87,25 +87,28 @@
 		public function authenticate() {
 			$this->casClient->forceAuthentication();
 		}
-
+		
 		public function logout() {
 			$this->casClient->logout( array() );
 		}
 
 		public function appConfig() {
 			return json_encode( array(
-				'ticket'     => $this->getAPIServiceTicket(),
-				'appUrl'     => $this->url->resolve( 'app' )->getPath(),
-				'mobileapps' => $this->mobileApps(),
-				'api'        => array(
+				'version'      => Config::get( 'version', '' ),
+				'ticket'       => $this->getAPIServiceTicket(),
+				'appUrl'       => $this->url->resolve( 'app' )->getPath(),
+				'mobileapps'   => $this->mobileApps(),
+				'api'          => array(
 					'measurements' => Config::get( 'measurements.endpoint' ),
 					'refresh'      => $this->url->resolve( 'refresh.php' )->getPath(),
 					'logout'       => Config::get( 'pgtservice.enabled' )
 						? $this->url->resolve( 'logout.php' )->getPath()
 						: $this->casClient->getServerLogoutURL(),
+					'login'        => $this->casClient->getServerLoginURL(),
 				),
-				'namespace'  => Config::get( 'measurements.namespace' ),
-				'googlemaps' => $this->googleMapsUrl(),
+				'namespace'    => Config::get( 'measurements.namespace' ),
+				'googlemaps'   => $this->googleMapsUrl(),
+				'enabled_tabs' => Config::get( 'enabled_tabs', array() )
 			) );
 		}
 
