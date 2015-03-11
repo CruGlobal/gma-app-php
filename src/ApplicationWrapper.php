@@ -86,9 +86,9 @@
 
 		public function versionUrl( $url ) {
 			$version = Config::get( 'version', false );
-			if ($version) {
+			if ( $version ) {
 				$url = new \Net_URL2( $url );
-				$url->setQueryVariable('ver', $version);
+				$url->setQueryVariable( 'ver', $version );
 				return $url->getURL();
 			}
 			return $url;
@@ -105,6 +105,7 @@
 		public function appConfig() {
 			return json_encode( array(
 				'version'      => Config::get( 'version', '' ),
+				'useMin'       => Config::get( 'use_min', true ),
 				'ticket'       => $this->getAPIServiceTicket(),
 				'appUrl'       => $this->url->resolve( 'app' )->getPath(),
 				'mobileapps'   => $this->mobileApps(),
