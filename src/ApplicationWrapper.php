@@ -84,10 +84,20 @@
 			return $this->casClient->retrievePT( Config::get( 'measurements.endpoint' ) . '/token', $code, $msg );
 		}
 
+		public function versionUrl( $url ) {
+			$version = Config::get( 'version', false );
+			if ($version) {
+				$url = new \Net_URL2( $url );
+				$url->setQueryVariable('ver', $version);
+				return $url->getURL();
+			}
+			return $url;
+		}
+
 		public function authenticate() {
 			$this->casClient->forceAuthentication();
 		}
-		
+
 		public function logout() {
 			$this->casClient->logout( array() );
 		}

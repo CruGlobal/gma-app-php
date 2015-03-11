@@ -2,19 +2,20 @@
 	require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
 	$wrapper = ApplicationWrapper::singleton();
 	$wrapper->authenticate();
+	$min = Config::get( 'use_min', true ) ? '.min' : '';
 	?>
 	<!doctype html>
 	<html>
 	<head>
 		<title>Next-Gen Measurements</title>
-		<link rel="icon" type="image/png" href="app/img/gma-logo.png">
+		<link rel="icon" type="image/png" href="<?php echo $wrapper->versionUrl( "app/img/gma-logo.png" ); ?>">
 
-		<link href="app/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-		<link href="app/vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
-		<link href="app/css/spinner.css" rel="stylesheet" />
-		<link href="app/css/gcm.css?ver=1.0.2" rel="stylesheet" />
+		<link href="<?php echo $wrapper->versionUrl( "app/vendor/bootstrap/dist/css/bootstrap{$min}.css" ); ?>" rel="stylesheet" />
+		<link href="<?php echo $wrapper->versionUrl( "app/vendor/bootstrap/dist/css/bootstrap-theme{$min}.css" ); ?>" rel="stylesheet" />
+		<link href="<?php echo $wrapper->versionUrl( 'app/css/spinner.css' ); ?>" rel="stylesheet" />
+		<link href="<?php echo $wrapper->versionUrl( 'app/css/gcm.css' ); ?>" rel="stylesheet" />
 
-		<script type="application/javascript" src="app/vendor/jquery/dist/jquery.js"></script>
+		<script type="application/javascript" src="<?php echo $wrapper->versionUrl( "app/vendor/jquery/dist/jquery{$min}.js" ); ?>"></script>
 		<script type="application/javascript">
 			var gma = window.gma = window.gma || {};
 			gma.config = <?php echo $wrapper->appConfig(); ?>;
@@ -23,8 +24,8 @@
 	<body>
 	<div ng-include="'app/template/app.html'"></div>
 	<script type="application/javascript"
-			data-main="app/js/main.js?ver=<?php echo Config::get( 'version', '' ); ?>"
-			src="app/vendor/requirejs/require.js"></script>
+			data-main="<?php echo $wrapper->versionUrl( "app/js/main.js" ); ?>"
+			src="<?php echo $wrapper->versionUrl( "app/vendor/requirejs/require.js" ); ?>"></script>
 	</body>
 	</html>
 <?php }

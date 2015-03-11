@@ -5,6 +5,11 @@
 	'version'      => '1.0.2',
 
 	/**
+	 * Use Minified CSS/JS
+	 */
+	'use_min' => true,
+
+	/**
 	 * Proxy Granting Ticket Service
 	 *
 	 * Enable this to use the php wrapper on localhost.
