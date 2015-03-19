@@ -2,6 +2,7 @@
 	require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
 	$wrapper = ApplicationWrapper::singleton();
 	$wrapper->authenticate();
+	$min = Config::get( 'app_dir', 'dist' ) === 'dist' ? '.min' : '';
 	?>
 	<!doctype html>
 	<html>
@@ -12,7 +13,7 @@
 			var gma = window.gma = window.gma || {};
 			gma.config = <?php echo $wrapper->appConfig(); ?>;
 		</script>
-		<script type="application/javascript" src="<?php echo $wrapper->appDir( 'js/wrapper.js' ); ?>"></script>
+		<script type="application/javascript" src="<?php echo $wrapper->appDir( "js/wrapper{$min}.js" ); ?>"></script>
 	</head>
 	<body style="margin: 0;">
 	<iframe id="GlobalMeasurementsApplication" src="<?php echo $wrapper->appDir( 'index.html' ); ?>" style="width: 100%; border-width: 0;" scrolling="no"></iframe>
