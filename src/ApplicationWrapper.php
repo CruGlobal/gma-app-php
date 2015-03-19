@@ -102,10 +102,14 @@
 			$this->casClient->logout( array() );
 		}
 
+		public function appDir( $path = '' ) {
+			$url = $this->url->resolve( 'app/' . Config::get( 'app_dir', 'dist' ) . '/' . ltrim( $path, '/' ) );
+			return $url->getURL();
+		}
+
 		public function appConfig() {
 			return json_encode( array(
 				'version'      => Config::get( 'version', '' ),
-				'useMin'       => Config::get( 'use_min', true ),
 				'ticket'       => $this->getAPIServiceTicket(),
 				'appUrl'       => $this->url->resolve( 'app' )->getPath(),
 				'mobileapps'   => $this->mobileApps(),

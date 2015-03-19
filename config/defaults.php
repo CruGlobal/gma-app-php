@@ -5,9 +5,9 @@
 	'version'      => '1.0.2',
 
 	/**
-	 * Use Minified CSS/JS
+	 * Application directory
 	 */
-	'use_min' => true,
+	'app_dir'      => 'dist',
 
 	/**
 	 * Proxy Granting Ticket Service
@@ -73,5 +73,5 @@
 	/**
 	 * Enabled tabs
 	 */
-    'enabled_tabs' => array('map', 'measurements', 'reports', 'admin')
+	'enabled_tabs' => array( 'map', 'measurements', 'reports', 'admin' )
 );
