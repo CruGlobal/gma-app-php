@@ -73,5 +73,5 @@
 	/**
 	 * Enabled tabs
 	 */
-	'enabled_tabs' => array( 'map', 'measurements', 'reports', 'admin' )
+	'tabs'         => array( 'map', 'measurements', 'reports', 'admin' ),
 );
