@@ -104,6 +104,7 @@
 
 		public function appDir( $path = '' ) {
 			$url = $this->url->resolve( 'app/' . Config::get( 'app_dir', 'dist' ) . '/' . ltrim( $path, '/' ) );
+			$url->setQueryVariable('ver', Config::get( 'version', 'false' ) );
 			return $url->getURL();
 		}
 
