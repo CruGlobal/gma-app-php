@@ -5,9 +5,24 @@
 	'version'      => '1.0.2',
 
 	/**
-	 * Application directory
+	 * Application Settings
 	 */
-	'app_dir'      => 'dist',
+	'application'  => array(
+		/**
+		 * Application directory
+		 *
+		 * Location where where index.html, javascript, styles should be loaded from.
+		 * Valid values (dist, src)
+		 */
+		'directory'   => 'dist',
+
+		/**
+		 * Application Environment
+		 *
+		 * Valid values (production, stage, development)
+		 */
+		'environment' => 'production',
+	),
 
 	/**
 	 * Proxy Granting Ticket Service

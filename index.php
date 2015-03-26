@@ -2,7 +2,7 @@
 	require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
 	$wrapper = ApplicationWrapper::singleton();
 	$wrapper->authenticate();
-	$min = Config::get( 'app_dir', 'dist' ) === 'dist' ? '.min' : '';
+	$min = Config::get( 'application.directory', 'dist' ) === 'dist' ? '.min' : '';
 	?>
 	<!doctype html>
 	<html>
