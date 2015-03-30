@@ -84,12 +84,28 @@
 			return $this->casClient->retrievePT( Config::get( 'measurements.endpoint' ) . '/token', $code, $msg );
 		}
 
+		public function versionUrl( $url ) {
+			$version = Config::get( 'version', false );
+			if ( $version ) {
+				$url = new \Net_URL2( $url );
+				$url->setQueryVariable( 'ver', $version );
+				return $url->getURL();
+			}
+			return $url;
+		}
+
 		public function authenticate() {
 			$this->casClient->forceAuthentication();
 		}
-		
+
 		public function logout() {
 			$this->casClient->logout( array() );
+		}
+
+		public function appDir( $path = '' ) {
+			$url = $this->url->resolve( 'app/' . Config::get( 'application.directory', 'dist' ) . '/' . ltrim( $path, '/' ) );
+			$url->setQueryVariable( 'ver', Config::get( 'version', 'false' ) );
+			return $url->getURL();
 		}
 
 		public function appConfig() {
@@ -108,7 +124,8 @@
 				),
 				'namespace'    => Config::get( 'measurements.namespace' ),
 				'googlemaps'   => $this->googleMapsUrl(),
-				'enabled_tabs' => Config::get( 'enabled_tabs', array() )
+				'tabs'         => Config::get( 'tabs', array() ),
+				'environment' => Config::get( 'application.environment', 'production' ),
 			) );
 		}
 

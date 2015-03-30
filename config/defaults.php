@@ -2,7 +2,27 @@
 	/**
 	 * Wrapper version
 	 */
-	'version'      => '1.0.2',
+	'version'      => '1.0.3',
+
+	/**
+	 * Application Settings
+	 */
+	'application'  => array(
+		/**
+		 * Application directory
+		 *
+		 * Location where where index.html, javascript, styles should be loaded from.
+		 * Valid values (dist, src)
+		 */
+		'directory'   => 'dist',
+
+		/**
+		 * Application Environment
+		 *
+		 * Valid values (production, stage, development)
+		 */
+		'environment' => 'production',
+	),
 
 	/**
 	 * Proxy Granting Ticket Service
@@ -61,12 +81,12 @@
 	 * Google Maps Configuration
 	 */
 	'googlemaps'   => array(
-		'endpoint' => 'https://maps.googleapis.com/maps/api/js?sensor=false',
+		'endpoint' => 'https://maps.googleapis.com/maps/api/js?libraries=places',
 		'apiKey'   => false,
 	),
 
 	/**
 	 * Enabled tabs
 	 */
-    'enabled_tabs' => array('map', 'measurements', 'reports', 'admin')
+	'tabs'         => array( 'map', 'measurements', 'reports', 'admin' ),
 );
