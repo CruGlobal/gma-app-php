@@ -59,7 +59,7 @@
 	 */
 	'measurements' => array(
 		/** @var string API endpoint, no training slash */
-		'endpoint'  => 'https://measurements.global-registry.org/v2',
+		'endpoint'  => 'https://measurements.global-registry.org/v4',
 		/** @var string Namespace of application specific measurements */
 		'namespace' => 'gma-app',
 	),
