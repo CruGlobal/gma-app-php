@@ -1,6 +1,8 @@
 # gma-app-php
 Global Measurements Application PHP Wrapper
 
+This repository and the app repository utilize git-flow for feature and release management. All development should be on the develop branch or a fork of it.
+
 ## Installation on localhost
 Clone the repo and submodule
 ```bash
