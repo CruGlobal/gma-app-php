@@ -2,12 +2,12 @@
 	/**
 	 * Wrapper version
 	 */
-	'version'      => '1.0.4',
+	'version'         => '1.0.4',
 
 	/**
 	 * Application Settings
 	 */
-	'application'  => array(
+	'application'     => array(
 		/**
 		 * Application directory
 		 *
@@ -29,7 +29,7 @@
 	 *
 	 * Enable this to use the php wrapper on localhost.
 	 */
-	'pgtservice'   => array(
+	'pgtservice'      => array(
 		/** @var bool Enable PGT Service */
 		'enabled'  => false,
 		/** @var string PGT Service proxy callback URL */
@@ -45,7 +45,7 @@
 	/**
 	 * CAS Settings
 	 */
-	'cas'          => array(
+	'cas'             => array(
 		/** @var string CAS hostname */
 		'hostname' => 'thekey.me',
 		/** @var int CAS port */
@@ -57,7 +57,7 @@
 	/**
 	 * Measurements API
 	 */
-	'measurements' => array(
+	'measurements'    => array(
 		/** @var string API endpoint, no training slash */
 		'endpoint'  => 'https://measurements.global-registry.org/v4',
 		/** @var string Namespace of application specific measurements */
@@ -68,7 +68,7 @@
 	 * Mobile Applications
 	 * label => link
 	 */
-	'mobileapps'   => array(
+	'mobileapps'      => array(
 		// -- Production --
 		'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/prod/ios/gma.plist',
 		'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements',
@@ -80,13 +80,17 @@
 	/**
 	 * Google Maps Configuration
 	 */
-	'googlemaps'   => array(
+	'googlemaps'      => array(
 		'endpoint' => 'https://maps.googleapis.com/maps/api/js?libraries=places',
 		'apiKey'   => false,
+	),
+
+	'googleanalytics' => array(
+		'apiKey' => false,
 	),
 
 	/**
 	 * Enabled tabs
 	 */
-	'tabs'         => array( 'map', 'measurements', 'reports', 'admin' ),
+	'tabs'            => array( 'map', 'measurements', 'reports', 'admin' ),
 );

@@ -110,11 +110,11 @@
 
 		public function appConfig() {
 			return json_encode( array(
-				'version'      => Config::get( 'version', '' ),
-				'ticket'       => $this->getAPIServiceTicket(),
-				'appUrl'       => $this->url->resolve( 'app' )->getPath(),
-				'mobileapps'   => $this->mobileApps(),
-				'api'          => array(
+				'version'         => Config::get( 'version', '' ),
+				'ticket'          => $this->getAPIServiceTicket(),
+				'appUrl'          => $this->url->resolve( 'app' )->getPath(),
+				'mobileapps'      => $this->mobileApps(),
+				'api'             => array(
 					'measurements' => Config::get( 'measurements.endpoint' ),
 					'refresh'      => $this->url->resolve( 'refresh.php' )->getPath(),
 					'logout'       => Config::get( 'pgtservice.enabled' )
@@ -122,10 +122,11 @@
 						: $this->casClient->getServerLogoutURL(),
 					'login'        => $this->casClient->getServerLoginURL(),
 				),
-				'namespace'    => Config::get( 'measurements.namespace' ),
-				'googlemaps'   => $this->googleMapsUrl(),
-				'tabs'         => Config::get( 'tabs', array() ),
-				'environment' => Config::get( 'application.environment', 'production' ),
+				'namespace'       => Config::get( 'measurements.namespace' ),
+				'googlemaps'      => $this->googleMapsUrl(),
+				'googleanalytics' => Config::get( 'googleanalytics.apiKey', false ),
+				'tabs'            => Config::get( 'tabs', array() ),
+				'environment'     => Config::get( 'application.environment', 'production' ),
 			) );
 		}
 
