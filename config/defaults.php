@@ -81,7 +81,7 @@
 	 * Google Maps Configuration
 	 */
 	'googlemaps'      => array(
-		'endpoint' => 'https://maps.googleapis.com/maps/api/js?libraries=places',
+		'endpoint' => '//maps.googleapis.com/maps/api/js?libraries=places',
 		'apiKey'   => false,
 	),
 
