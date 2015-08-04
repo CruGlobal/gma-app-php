@@ -127,7 +127,8 @@
 				'googleanalytics' => Config::get( 'googleanalytics.apiKey', false ),
 				'tabs'            => Config::get( 'tabs', array() ),
 				'environment'     => Config::get( 'application.environment', 'production' ),
-			) );
+                'default_measurement_states'     => Config::get( 'default_measurement_states', array())
+                ) );
 		}
 
 		private function mobileApps() {

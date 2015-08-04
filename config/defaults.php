@@ -93,4 +93,17 @@
 	 * Enabled tabs
 	 */
 	'tabs'            => array( 'map', 'measurements', 'reports', 'admin' ),
+
+    /**
+     * 'prem_link_stub' => 1
+     * 1 = Collapsed
+     * 0 = Expanded
+     */
+	'default_measurement_states' => array(
+		'gcm'=>array(),
+		'llm'=>array(),
+		'slm'=>array(),
+		'ds'=>array(),
+
+	)
 );
