@@ -92,7 +92,7 @@
 	/**
 	 * Enabled tabs
 	 */
-	'tabs'            => array( 'map', 'measurements', 'reports', 'admin' ),
+	'tabs'            => array( 'map', 'measurements', 'reports', 'admin','news' ),
 
     /**
      * 'prem_link_stub' => 1
@@ -105,5 +105,15 @@
 		'slm'=>array(),
 		'ds'=>array(),
 
-	)
+	),
+
+    /**
+     * Set the max values for stories section
+     * Image size in pixels
+     */
+    'stories' => array(
+        'content_length' => 1000,
+        'image_height' => 128,
+        'image_width' => 128,
+    )
 );
