@@ -117,5 +117,21 @@
         'image_width' => 128,
         'stories_per_page' => 5,
         'feeds_count' => 15,
-    )
+    ),
+
+    'area_codes' => array(
+        ['code' => 'AAOP', 'name' => 'East Asia Opportunities'],
+        ['code' => 'AAOR', 'name' => 'East Asia Orient'],
+        ['code' => 'AASE', 'name' => 'Southeast Asia'],
+        ['code' => 'AASO', 'name' => 'South Asia'],
+        ['code' => 'AFFR', 'name' => 'Francophone Africa'],
+        ['code' => 'AFSE', 'name' => 'Southern & Eastern Africa'],
+        ['code' => 'AFWE', 'name' => 'West Africa'],
+        ['code' => 'EUER', 'name' => 'Eastern Europe and Russia'],
+        ['code' => 'EUWE', 'name' => 'Western Europe'],
+        ['code' => 'LAAM', 'name' => 'Latin America'],
+        ['code' => 'NAME', 'name' => 'North Africa & Middle East'],
+        ['code' => 'NAOC', 'name' => 'North America and Oceania'],
+        ['code' => 'PACT', 'name' => 'Persia], Central Asia & Turkey'],
+    ),
 );

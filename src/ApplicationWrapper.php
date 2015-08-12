@@ -128,7 +128,8 @@
 				'tabs'            => Config::get( 'tabs', array() ),
 				'environment'     => Config::get( 'application.environment', 'production' ),
                 'default_measurement_states'     => Config::get( 'default_measurement_states', array()),
-                'stories'     => Config::get( 'stories', array())
+                'stories'     => Config::get( 'stories', array()),
+                'area_codes'     => Config::get( 'area_codes', array()),
                 ) );
 		}
 
