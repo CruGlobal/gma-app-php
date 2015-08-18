@@ -116,7 +116,7 @@
         'image_height' => 128,
         'image_width' => 128,
         'stories_per_page' => 5,
-        'feeds_count' => 15,
+        'feeds_count' => 10,
     ),
 
     'area_codes' => array(

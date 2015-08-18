@@ -17,7 +17,7 @@
 	</head>
 	<body style="margin: 0;">
 	<iframe id="GlobalMeasurementsApplication" src="<?php echo $wrapper->appDir( 'index.html' ); ?>" style="width: 100%; border-width: 0;" scrolling="no"></iframe>
-	<script type="application/javascript">iFrameResize( {}, document.getElementById( 'GlobalMeasurementsApplication' ) );</script>
+	<script type="application/javascript">iFrameResize( { minHeight: 500}, document.getElementById( 'GlobalMeasurementsApplication' ) );</script>
 	</body>
 	</html>
 <?php }
