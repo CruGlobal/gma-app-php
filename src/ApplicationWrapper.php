@@ -130,6 +130,7 @@
                 'default_measurement_states'     => Config::get( 'default_measurement_states', array()),
                 'stories'     => Config::get( 'stories', array()),
                 'area_codes'     => Config::get( 'area_codes', array()),
+                'static_locales'     => Config::get( 'static_locales', array()),
                 ),JSON_FORCE_OBJECT );
 		}
 

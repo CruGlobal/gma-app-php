@@ -134,4 +134,10 @@
         ['code' => 'NAOC', 'name' => 'North America and Oceania'],
         ['code' => 'PACT', 'name' => 'Persia], Central Asia & Turkey'],
     ),
+
+    'static_locales' => array(
+        'en-us' => 'English US',
+        'en-gb' => 'English UK',
+        'fr-fr' => 'French',
+    ),
 );
