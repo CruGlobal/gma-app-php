@@ -92,7 +92,7 @@
 	/**
 	 * Enabled tabs
 	 */
-	'tabs'            => array( 'map', 'measurements', 'reports', 'admin','news' ),
+	'tabs'            => array( 'news','map', 'measurements', 'reports', 'admin' ),
 
     /**
      * 'prem_link_stub' => 1
