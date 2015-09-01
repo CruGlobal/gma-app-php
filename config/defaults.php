@@ -113,8 +113,8 @@
      */
     'stories' => array(
         'content_length' => 1000,
-        'image_height' => 128,
-        'image_width' => 128,
+        'image_height' => 256,
+        'image_width' => 256,
         'stories_per_page' => 5,
         'feeds_count' => 12,
     ),
