@@ -8,6 +8,7 @@
 	<html>
 	<head>
 		<title>Next-Gen Measurements</title>
+        <meta charset="utf-8">
 		<link rel="icon" type="image/png" href="<?php echo $wrapper->appDir( 'img/logo/favicon.png' ); ?>">
 		<script type="application/javascript">
 			var gma = window.gma = window.gma || {};

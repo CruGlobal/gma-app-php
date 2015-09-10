@@ -135,9 +135,13 @@
          'PACT' => 'Persia, Central Asia & Turkey',
     ),
 
+    /**
+     * Following ISO 3166-1
+     * @source https://en.wikipedia.org/wiki/ISO_3166-1
+     */
     'static_locales' => array(
-        'en-us' => 'English US',
-        'en-gb' => 'English UK',
-        'fr-fr' => 'French',
+        'en-US' => 'English - United States',
+        'en-GB' => 'English - United Kingdom',
+        //'en-CA' => 'English - Canada',
     ),
 );
