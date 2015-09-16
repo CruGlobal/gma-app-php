@@ -91,8 +91,9 @@
 
 	/**
 	 * Enabled tabs
+     * reports tab is hidden for now
 	 */
-	'tabs'            => array( 'news','map', 'measurements', 'reports', 'admin' ),
+	'tabs'            => array( 'news','map', 'measurements', 'admin' ),
 
     /**
      * 'prem_link_stub' => 1
