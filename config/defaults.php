@@ -2,17 +2,17 @@
 	/**
 	 * Wrapper version
 	 */
-	'version'         => '1.0.4',
+	'version'                    => '2.0.0',
 
 	/**
 	 * Application Name
 	 */
-	'name'            => 'GMA',
+	'name'                       => 'GMA',
 
 	/**
 	 * Application Settings
 	 */
-	'application'     => array(
+	'application'                => array(
 		/**
 		 * Application directory
 		 *
@@ -34,7 +34,7 @@
 	 *
 	 * Enable this to use the php wrapper on localhost.
 	 */
-	'pgtservice'      => array(
+	'pgtservice'                 => array(
 		/** @var bool Enable PGT Service */
 		'enabled'  => false,
 		/** @var string PGT Service proxy callback URL */
@@ -50,7 +50,7 @@
 	/**
 	 * CAS Settings
 	 */
-	'cas'             => array(
+	'cas'                        => array(
 		/** @var string CAS hostname */
 		'hostname' => 'thekey.me',
 		/** @var int CAS port */
@@ -62,9 +62,9 @@
 	/**
 	 * Measurements API
 	 */
-	'measurements'    => array(
+	'measurements'               => array(
 		/** @var string API endpoint, no training slash */
-		'endpoint'  => 'https://measurements.global-registry.org/v4',
+		'endpoint'  => 'https://measurements.global-registry.org/v5',
 		/** @var string Namespace of application specific measurements */
 		'namespace' => 'gma-app',
 	),
@@ -73,7 +73,7 @@
 	 * Mobile Applications
 	 * label => link
 	 */
-	'mobileapps'      => array(
+	'mobileapps'                 => array(
 		// -- Production --
 		'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/prod/ios/gma.plist',
 		'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements',
@@ -85,69 +85,69 @@
 	/**
 	 * Google Maps Configuration
 	 */
-	'googlemaps'      => array(
+	'googlemaps'                 => array(
 		'endpoint' => '//maps.googleapis.com/maps/api/js?libraries=places',
 		'apiKey'   => false,
 	),
 
-	'googleanalytics' => array(
+	'googleanalytics'            => array(
 		'apiKey' => false,
 	),
 
 	/**
 	 * Enabled tabs
-     * reports tab is hidden for now
+	 * reports tab is hidden for now
 	 */
-	'tabs'            => array( 'news','map', 'measurements', 'admin' ),
+	'tabs'                       => array( 'news', 'map', 'measurements', 'admin' ),
 
-    /**
-     * 'prem_link_stub' => 1
-     * 1 = Collapsed
-     * 0 = Expanded
-     */
+	/**
+	 * 'prem_link_stub' => 1
+	 * 1 = Collapsed
+	 * 0 = Expanded
+	 */
 	'default_measurement_states' => array(
-		'gcm'=>array(),
-		'llm'=>array(),
-		'slm'=>array(),
-		'ds'=>array(),
+		'gcm' => array(),
+		'llm' => array(),
+		'slm' => array(),
+		'ds'  => array(),
 
 	),
 
-    /**
-     * Set the max values for stories section
-     * Image size in pixels
-     */
-    'stories' => array(
-        'content_length' => 1000,
-        'image_height' => 256,
-        'image_width' => 256,
-        'stories_per_page' => 5,
-        'feeds_count' => 12,
-    ),
+	/**
+	 * Set the max values for stories section
+	 * Image size in pixels
+	 */
+	'stories'                    => array(
+		'content_length'   => 1000,
+		'image_height'     => 256,
+		'image_width'      => 256,
+		'stories_per_page' => 5,
+		'feeds_count'      => 12,
+	),
 
-    'area_codes' => array(
-         'AAOP' => 'East Asia Opportunities',
-         'AAOR' => 'East Asia Orient',
-         'AASE' => 'Southeast Asia',
-         'AASO' => 'South Asia',
-         'AFFR' => 'Francophone Africa',
-         'AFSE' => 'Southern & Eastern Africa',
-         'AFWE' => 'West Africa',
-         'EUER' => 'Eastern Europe and Russia',
-         'EUWE' => 'Western Europe',
-         'LAAM' => 'Latin America',
-         'NAME' => 'North Africa & Middle East',
-         'NAOC' => 'North America and Oceania',
-         'PACT' => 'Persia, Central Asia & Turkey',
-    ),
+	'area_codes'                 => array(
+		'AAOP' => 'East Asia Opportunities',
+		'AAOR' => 'East Asia Orient',
+		'AASE' => 'Southeast Asia',
+		'AASO' => 'South Asia',
+		'AFFR' => 'Francophone Africa',
+		'AFSE' => 'Southern & Eastern Africa',
+		'AFWE' => 'West Africa',
+		'EUER' => 'Eastern Europe and Russia',
+		'EUWE' => 'Western Europe',
+		'LAAM' => 'Latin America',
+		'NAME' => 'North Africa & Middle East',
+		'NAOC' => 'North America and Oceania',
+		'PACT' => 'Persia, Central Asia & Turkey',
+	),
 
-    /**
-     * Following ISO 3166-1
-     * @source https://en.wikipedia.org/wiki/ISO_3166-1
-     */
-    'static_locales' => array(
-        'en-US' => 'English - United States',
-        'en-GB' => 'English - United Kingdom',
-        //'en-CA' => 'English - Canada',
-    ),
+	/**
+	 * Following ISO 3166-1
+	 * @source https://en.wikipedia.org/wiki/ISO_3166-1
+	 */
+	'static_locales'             => array(
+		'en-US' => 'English - United States',
+		'en-GB' => 'English - United Kingdom',
+		//'en-CA' => 'English - Canada',
+	),
 );
