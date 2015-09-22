@@ -5,6 +5,11 @@
 	'version'         => '1.0.4',
 
 	/**
+	 * Application Name
+	 */
+	'name'            => 'GMA',
+
+	/**
 	 * Application Settings
 	 */
 	'application'     => array(
