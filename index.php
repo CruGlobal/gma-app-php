@@ -7,7 +7,8 @@
 	<!doctype html>
 	<html>
 	<head>
-		<title>Next-Gen Measurements</title>
+		<title><?php echo Config::get( 'name', 'GMA' ); ?></title>
+		<meta charset="utf-8">
 		<link rel="icon" type="image/png" href="<?php echo $wrapper->appDir( 'img/logo/favicon.png' ); ?>">
 		<script type="application/javascript">
 			var gma = window.gma = window.gma || {};
@@ -17,7 +18,7 @@
 	</head>
 	<body style="margin: 0;">
 	<iframe id="GlobalMeasurementsApplication" src="<?php echo $wrapper->appDir( 'index.html' ); ?>" style="width: 100%; border-width: 0;" scrolling="no"></iframe>
-	<script type="application/javascript">iFrameResize( {}, document.getElementById( 'GlobalMeasurementsApplication' ) );</script>
+	<script type="application/javascript">iFrameResize( {minHeight: 500}, document.getElementById( 'GlobalMeasurementsApplication' ) );</script>
 	</body>
 	</html>
 <?php }
