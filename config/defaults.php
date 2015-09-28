@@ -2,7 +2,7 @@
 	/**
 	 * Wrapper version
 	 */
-	'version'                    => '2.0.0',
+	'version'                    => '2.0.1',
 
 	/**
 	 * Application Name
@@ -146,8 +146,35 @@
 	 * @source https://en.wikipedia.org/wiki/ISO_3166-1
 	 */
 	'static_locales'             => array(
-		'en-US' => 'English - United States',
-		'en-GB' => 'English - United Kingdom',
-		//'en-CA' => 'English - Canada',
+		'en-US' => 'English (United States)',
+		'en-GB' => 'English (United Kingdom)',
+		'ro-RO' => 'Romanian',
+		'sq-AL' => 'Albanian',
+		'ru-RU' => 'Russian',
+		//'uk-UA' => 'Ukrainian',
+		//'pl-PL' => 'Polish',
+		//'bg-BG' => 'Bulgarian',
+		//'sr-BA' => 'Serbian',
+		//'sk-SK' => 'Slovak',
+		//'ka-GE' => 'Georgian',
+		//'he-IL' => 'Hebrew',
+		//'hu-HU' => 'Hungarian',
+		//'cs-CZ' => 'Czech',
+		//'hr-HR' => 'Croatian',
+		'am-AM' => 'Amharic',
+		//'sw-KE' => 'Swahili',
+		'pt-PT' => 'Portuguese (Portugal)',
+		'pt-BR' => 'Portuguese (Brazil)',
+		'fr-FR' => 'French',
+		//'ha-NG' => 'Hausa',
+		'es-AR' => 'Spanish',
+		'zh-CN' => 'Chinese Simplified',
+		'zh-TW' => 'Chinese Traditional',
+		'th-TH' => 'Thai',
+		'vi-VN' => 'Vietnamese',
+		'de-DE' => 'German',
+		'ar-EG' => 'Arabic',
+		'hi-IN' => 'Hindi (India)',
+		'id-ID' => 'Indonesian',
 	),
 );
