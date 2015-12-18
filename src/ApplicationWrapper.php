@@ -38,7 +38,10 @@
 		private function __construct() {
 			//Load config
 			$configDir = dirname( dirname( __FILE__ ) ) . '/config';
-			Config::load( require $configDir . '/config.php', require $configDir . '/defaults.php' );
+			Config::load(
+				file_exists( $configDir . '/config.php' ) ? require $configDir . '/config.php' : array(),
+				require $configDir . '/defaults.php'
+			);
 
 			//Generate Current URL taking into account forwarded proto
 			$url = \Net_URL2::getRequested();
@@ -66,6 +69,16 @@
 			if ( true === Config::get( 'pgtservice.enabled', false ) ) {
 				$casClient->setCallbackURL( Config::get( 'pgtservice.callback' ) );
 				$casClient->setPGTStorage( new ProxyTicketServiceStorage( $casClient ) );
+			}
+			else if ( false !== Config::get( 'redis.hostname', false ) ) {
+				$casClient->setCallbackURL( $this->url->getURL() . '/callback.php' );
+
+				$redis = new \Redis();
+				$redis->connect( Config::get( 'redis.hostname' ), Config::get( 'redis.port', 6379 ), 2 );
+				$redis->setOption( \Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP );
+				$redis->setOption( \Redis::OPT_PREFIX, Config::get( 'application.project_name' ) . ':PHPCAS_TICKET_STORAGE:' );
+				$redis->select( Config::get( 'redis.hostname', 2 ) );
+				$casClient->setPGTStorage( new RedisTicketStorage( $casClient, $redis ) );
 			}
 			else {
 				$casClient->setCallbackURL( $this->url->resolve( 'callback.php' )->getURL() );
@@ -111,7 +124,8 @@
 		public function appConfig() {
 			return json_encode( array(
 				'version'                    => Config::get( 'version', '' ),
-				'name'                       => Config::get( 'name', 'GMA' ),
+				'name'                       => stripos( \Net_URL2::getRequestedURL(), 'ishare' ) === false ?
+					Config::get( 'name', 'GMA' ) : 'iShare',
 				'ticket'                     => $this->getAPIServiceTicket(),
 				'appUrl'                     => $this->url->resolve( 'app' )->getPath(),
 				'mobileapps'                 => $this->mobileApps(),
@@ -128,7 +142,13 @@
 				'googleanalytics'            => Config::get( 'googleanalytics.apiKey', false ),
 				'tabs'                       => Config::get( 'tabs', array() ),
 				'environment'                => Config::get( 'application.environment', 'production' ),
-				'default_measurement_states' => Config::get( 'default_measurement_states', array() ),
+				'default_measurement_states' => stripos( \Net_URL2::getRequestedURL(), 'ishare' ) === false ?
+					Config::get( 'default_measurement_states', array() ) : array(
+						'gcm' => array( 'win_exposing' => 1 ),
+						'llm' => array( 'win_exposing' => 1 ),
+						'slm' => array( 'win_exposing' => 1 ),
+						'ds'  => array( 'win_exposing' => 1 ),
+					),
 				'stories'                    => Config::get( 'stories', array() ),
 				'area_codes'                 => Config::get( 'area_codes', array() ),
 				'static_locales'             => Config::get( 'static_locales', array() ),
