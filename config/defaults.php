@@ -13,7 +13,7 @@
 		/**
 		 * Wrapper version
 		 */
-		'version'      => '2.0.1',
+		'version'      => '2.0.2',
 
 		/**
 		 * Application Name
