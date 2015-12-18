@@ -74,7 +74,7 @@
 				$casClient->setCallbackURL( $this->url->getURL() . '/callback.php' );
 
 				$redis = new \Redis();
-				$redis->connect( Config::get( 'redis.hostname' ), Config::get( 'redis.port', 6379 ), 2, null, 100 );
+				$redis->connect( Config::get( 'redis.hostname' ), Config::get( 'redis.port', 6379 ), 2 );
 				$redis->setOption( \Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP );
 				$redis->setOption( \Redis::OPT_PREFIX, Config::get( 'application.project_name' ) . ':PHPCAS_TICKET_STORAGE:' );
 				$redis->select( Config::get( 'redis.hostname', 2 ) );
@@ -124,7 +124,8 @@
 		public function appConfig() {
 			return json_encode( array(
 				'version'                    => Config::get( 'version', '' ),
-				'name'                       => Config::get( 'name', 'GMA' ),
+				'name'                       => stripos( \Net_URL2::getRequestedURL(), 'ishare' ) === false ?
+					Config::get( 'name', 'GMA' ) : 'iShare',
 				'ticket'                     => $this->getAPIServiceTicket(),
 				'appUrl'                     => $this->url->resolve( 'app' )->getPath(),
 				'mobileapps'                 => $this->mobileApps(),
@@ -141,7 +142,13 @@
 				'googleanalytics'            => Config::get( 'googleanalytics.apiKey', false ),
 				'tabs'                       => Config::get( 'tabs', array() ),
 				'environment'                => Config::get( 'application.environment', 'production' ),
-				'default_measurement_states' => Config::get( 'default_measurement_states', array() ),
+				'default_measurement_states' => stripos( \Net_URL2::getRequestedURL(), 'ishare' ) === false ?
+					Config::get( 'default_measurement_states', array() ) : array(
+						'gcm' => array( 'win_exposing' => 1 ),
+						'llm' => array( 'win_exposing' => 1 ),
+						'slm' => array( 'win_exposing' => 1 ),
+						'ds'  => array( 'win_exposing' => 1 ),
+					),
 				'stories'                    => Config::get( 'stories', array() ),
 				'area_codes'                 => Config::get( 'area_codes', array() ),
 				'static_locales'             => Config::get( 'static_locales', array() ),

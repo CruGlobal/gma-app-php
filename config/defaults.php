@@ -99,14 +99,16 @@
 		 * Mobile Applications
 		 * label => link
 		 */
-		'mobileapps'   => array(
-			// -- Production --
-			'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/prod/ios/gma.plist',
-			'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements',
-			// -- Stage --
-			//'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/stage/ios/gma.plist',
-			//'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements.demo',
-		),
+		'mobileapps'   => ENV( 'ENVIRONMENT', 'production' ) === 'staging' ?
+			array(
+				// -- Stage --
+				'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/stage/ios/gma.plist',
+				'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements.demo',
+			) : array(
+				// -- Production --
+				'iOS'     => 'itms-services://?action=download-manifest&url=https://downloads.global-registry.org/prod/ios/gma.plist',
+				'Android' => 'https://play.google.com/store/apps/details?id=com.expidevapps.android.measurements',
+			),
 
 		/**
 		 * Google Maps Configuration
@@ -132,8 +134,11 @@
 		 * 0 = Expanded
 		 * default = array('gcm' => array(),'llm' => array(),'slm' => array(),'ds'  => array(),)
 		 */
-		'default_measurement_states' => unserialize(
-			ENV( 'MEASUREMENT_STATES', 'a:4:{s:3:"gcm";a:0:{}s:3:"llm";a:0:{}s:3:"slm";a:0:{}s:2:"ds";a:0:{}}' )
+		'default_measurement_states' => array(
+			'gcm' => array(),
+			'llm' => array(),
+			'slm' => array(),
+			'ds'  => array(),
 		),
 
 		/**
