@@ -77,7 +77,7 @@
 				$redis->connect( Config::get( 'redis.hostname' ), Config::get( 'redis.port', 6379 ), 2 );
 				$redis->setOption( \Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP );
 				$redis->setOption( \Redis::OPT_PREFIX, Config::get( 'application.project_name' ) . ':PHPCAS_TICKET_STORAGE:' );
-				$redis->select( Config::get( 'redis.hostname', 2 ) );
+				$redis->select( (int) Config::get( 'redis.hostname', 2 ) );
 				$casClient->setPGTStorage( new RedisTicketStorage( $casClient, $redis ) );
 			}
 			else {
