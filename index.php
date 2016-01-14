@@ -14,11 +14,21 @@
 			var gma = window.gma = window.gma || {};
 			gma.config = <?php echo $wrapper->appConfig(); ?>;
 		</script>
-		<script type="application/javascript" src="<?php echo $wrapper->appDir( "js/wrapper{$min}.js" ); ?>"></script>
+		<style>
+			body, html {
+				margin: 0; padding: 0; height: 100%; overflow: hidden;
+			}
+
+			#GlobalMeasurementsApplication {
+				position:absolute; left: 0; right: 0; bottom: 0; top: 0; height: 100%;
+			}
+		</style>
+
+		<!--<script type="application/javascript" src="<?php echo $wrapper->appDir( "js/wrapper{$min}.js" ); ?>"></script>-->
 	</head>
-	<body style="margin: 0;">
-	<iframe id="GlobalMeasurementsApplication" src="<?php echo $wrapper->appDir( 'index.html' ); ?>" style="width: 100%; border-width: 0;" scrolling="no"></iframe>
-	<script type="application/javascript">iFrameResize( {minHeight: 500}, document.getElementById( 'GlobalMeasurementsApplication' ) );</script>
+	<body>
+	<iframe id="GlobalMeasurementsApplication" src="<?php echo $wrapper->appDir( 'index.html' ); ?>" style="width: 100%; border-width: 0;"></iframe>
+	<!--<script type="application/javascript">iFrameResize( {minHeight: 500}, document.getElementById( 'GlobalMeasurementsApplication' ) );</script>-->
 	</body>
 	</html>
 <?php }
