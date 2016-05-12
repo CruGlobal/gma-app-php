@@ -13,7 +13,7 @@
 		/**
 		 * Wrapper version
 		 */
-		'version'      => '2.0.4',
+		'version'      => '2.1',
 
 		/**
 		 * Application Name
@@ -35,7 +35,7 @@
 			/**
 			 * Project Name
 			 */
-			'project_name' => ENV( 'PROJECT_NAME', 'mpd-dashboard-app' ),
+			'project_name' => ENV( 'PROJECT_NAME', 'gma-app-php' ),
 
 
 			/**
@@ -90,7 +90,7 @@
 		 */
 		'measurements' => array(
 			/** @var string API endpoint, no training slash */
-			'endpoint'  => ENV( 'MEASUREMENTS_API', 'https://measurements.global-registry.org/v5' ),
+			'endpoint'  => ENV( 'MEASUREMENTS_API', 'https://measurements-api.cru.org/v5' ),
 			/** @var string Namespace of application specific measurements */
 			'namespace' => 'gma-app',
 		),
