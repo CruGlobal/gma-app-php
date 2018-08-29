@@ -14,8 +14,8 @@ RUN composer install --no-dev
 RUN set -x \
 	&& cd app \
 	&& npm install \
-	&& bower --allow-root install \
-	&& ./node_modules/.bin/gulp build \
+	&& npx bower --allow-root install \
+	&& npx gulp build \
 	&& cd ..
 
 # Copy post-deploy scripts
