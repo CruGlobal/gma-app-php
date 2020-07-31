@@ -13,6 +13,8 @@ RUN composer install --no-dev
 # Install Node dependencies, Bower dependencies and build with gulp
 RUN set -x \
 	&& cd app \
+	&& npm install -g n \
+	&& n 6.17.1 \
 	&& npm install \
 	&& npx bower --allow-root install \
 	&& npx gulp build \
