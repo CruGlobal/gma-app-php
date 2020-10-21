@@ -80,9 +80,9 @@
 		 * Redis Settings
 		 */
 		'redis'        => array(
-			'hostname' => ENV( 'REDIS_PORT_6379_TCP_ADDR_SESSION', false ),
-			'port'     => 6379,
-			'db'       => ENV( 'REDIS_DB_INDEX', 2 ),
+			'hostname' => ENV( 'SESSION_REDIS_HOST', false ),
+			'port'     => ENV( 'SESSION_REDIS_PORT', 6379 ),
+			'db'       => ENV( 'SESSION_REDIS_DB_INDEX' ),
 		),
 
 		/**

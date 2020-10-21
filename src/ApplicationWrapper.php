@@ -74,10 +74,10 @@
 				$casClient->setCallbackURL( $this->url->getURL() . '/callback.php' );
 
 				$redis = new \Redis();
-				$redis->connect( Config::get( 'redis.hostname' ), Config::get( 'redis.port', 6379 ), 2 );
+				$redis->connect( Config::get( 'redis.hostname' ), (int) Config::get( 'redis.port', 6379 ), 2 );
 				$redis->setOption( \Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP );
 				$redis->setOption( \Redis::OPT_PREFIX, Config::get( 'application.project_name' ) . ':PHPCAS_TICKET_STORAGE:' );
-				$redis->select( (int) Config::get( 'redis.hostname', 2 ) );
+				$redis->select( (int) Config::get( 'redis.db', 2 ) );
 				$casClient->setPGTStorage( new RedisTicketStorage( $casClient, $redis ) );
 			}
 			else {
